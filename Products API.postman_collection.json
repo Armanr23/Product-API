@@ -1,0 +1,1120 @@
+{
+	"info": {
+		"_postman_id": "6665e012-a212-4dbb-8514-7852025f6381",
+		"name": "Products API",
+		"description": "The Products web service provides a RESTful API for creating and retrieving Products. The [Web UI](../../web-ui) makes calls to this service when a user goes through the checkout process or when viewing their Products.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "id/{product Id}",
+					"item": [
+						{
+							"name": "/products/id/:productId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "appllication/json"
+									}
+								],
+								"url": {
+									"raw": "{{Prod}}/products/id/:productId",
+									"host": [
+										"{{Prod}}"
+									],
+									"path": [
+										"products",
+										"id",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29"
+										}
+									]
+								},
+								"description": "Return a product of a given id"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "appllication/json"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/products/id/:productId",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "appllication/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"sk\": \"\",\n  \"name\": \"Screwdriver\",\n  \"category\": \"tools\",\n  \"style\": \"screwdriver\",\n  \"description\": \"Essential screwdriver for every craftperson\",\n  \"price\": 3.99,\n  \"image\": \"http://xxx.cloudfront.net/images/tools/8bffb5fb-624f-48a8-a99f-b8e9c64bbe29.jpg\",\n  \"featured\": \"true\",\n  \"gender_affinity\": \"F\",\n  \"current_stock\": 9\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{Prod}}/products/id/:productId",
+									"host": [
+										"{{Prod}}"
+									],
+									"path": [
+										"products",
+										"id",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update a product of a given id"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"sk\": \"\",\n  \"name\": \"Screwdriver\",\n  \"category\": \"tools\",\n  \"style\": \"screwdriver\",\n  \"description\": \"Essential screwdriver for every craftperson\",\n  \"price\": 3.99,\n  \"image\": \"http://xxx.cloudfront.net/images/tools/8bffb5fb-624f-48a8-a99f-b8e9c64bbe29.jpg\",\n  \"featured\": \"true\",\n  \"gender_affinity\": \"F\",\n  \"current_stock\": 9\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "appllication/json"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/products/id/:productId",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/id/:productId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"id",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+											"description": "(Required) "
+										},
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								},
+								"description": "Delete a product of a given id"
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Product not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Internal error when deleting the product",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/products/id/:productId/inventory",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "appllication/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"stock_delta\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/id/:productId/inventory",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"id",
+										":productId",
+										"inventory"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+											"description": "(Required) "
+										},
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								},
+								"description": "Update stock of a given product id."
+							},
+							"response": [
+								{
+									"name": "Successful",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"stock_delta\": 5\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId/inventory",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId",
+												"inventory"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "appllication/json"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Product not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"stock_delta\": 5\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/products/id/:productId/inventory",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"products",
+												"id",
+												":productId",
+												"inventory"
+											],
+											"variable": [
+												{
+													"key": "productId",
+													"value": "8bffb5fb-624f-48a8-a99f-b8e9c64bbe29",
+													"description": "(Required) "
+												},
+												{
+													"key": "host",
+													"value": "{{host}}"
+												},
+												{
+													"key": "port",
+													"value": "{{port}}",
+													"description": "Use the port from ../docker-compose.yml"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "/products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "appllication/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sk\": \"\",\n  \"name\": \"Screwdriver\",\n  \"category\": \"tools\",\n  \"style\": \"screwdriver\",\n  \"description\": \"Essential screwdriver for every craftperson\",\n  \"price\": 3.99,\n  \"image\": \"http://xxx.cloudfront.net/images/tools/8bffb5fb-624f-48a8-a99f-b8e9c64bbe29.jpg\",\n  \"featured\": \"true\",\n  \"gender_affinity\": \"F\",\n  \"current_stock\": 9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							],
+							"variable": [
+								{
+									"key": "host",
+									"value": "{{host}}"
+								},
+								{
+									"key": "port",
+									"value": "{{port}}",
+									"description": "Use the port from ../docker-compose.yml"
+								}
+							]
+						},
+						"description": "Create a new product"
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"sk\": \"\",\n  \"name\": \"Screwdriver\",\n  \"category\": \"tools\",\n  \"style\": \"screwdriver\",\n  \"description\": \"Essential screwdriver for every craftperson\",\n  \"price\": 3.99,\n  \"image\": \"http://xxx.cloudfront.net/images/tools/8bffb5fb-624f-48a8-a99f-b8e9c64bbe29.jpg\",\n  \"featured\": \"true\",\n  \"gender_affinity\": \"F\",\n  \"current_stock\": 9\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									],
+									"variable": [
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "appllication/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/products/all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "appllication/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"all"
+							],
+							"variable": [
+								{
+									"key": "host",
+									"value": "{{host}}"
+								},
+								{
+									"key": "port",
+									"value": "{{port}}",
+									"description": "Use the port from ../docker-compose.yml"
+								}
+							]
+						},
+						"description": "Return an array of products"
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"all"
+									],
+									"variable": [
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "appllication/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/products/category/:categoryName",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "appllication/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products/category/:categoryName",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"category",
+								":categoryName"
+							],
+							"variable": [
+								{
+									"key": "categoryName",
+									"value": "tools",
+									"description": "(Required) "
+								},
+								{
+									"key": "host",
+									"value": "{{host}}"
+								},
+								{
+									"key": "port",
+									"value": "{{port}}",
+									"description": "Use the port from ../docker-compose.yml"
+								}
+							]
+						},
+						"description": "Return an array of products from a given category. It does NOT check if the given category exists. If it doesn't, the API will return an empty array."
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/category/:categoryName",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"category",
+										":categoryName"
+									],
+									"variable": [
+										{
+											"key": "categoryName",
+											"value": "tools",
+											"description": "(Required) "
+										},
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "appllication/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/products/featured",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "appllication/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/products/featured",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"featured"
+							],
+							"variable": [
+								{
+									"key": "host",
+									"value": "{{host}}"
+								},
+								{
+									"key": "port",
+									"value": "{{port}}",
+									"description": "Use the port from ../docker-compose.yml"
+								}
+							]
+						},
+						"description": "Return an array of featured products"
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/featured",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"featured"
+									],
+									"variable": [
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "appllication/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "/categories/all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "appllication/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"all"
+							],
+							"variable": [
+								{
+									"key": "host",
+									"value": "{{host}}"
+								},
+								{
+									"key": "port",
+									"value": "{{port}}",
+									"description": "Use the port from ../docker-compose.yml"
+								}
+							]
+						},
+						"description": "Return an array of categories"
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/all",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"all"
+									],
+									"variable": [
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "appllication/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "/categories/id/:categoryId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "appllication/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories/id/:categoryId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"id",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "16",
+									"description": "(Required) "
+								},
+								{
+									"key": "host",
+									"value": "{{host}}"
+								},
+								{
+									"key": "port",
+									"value": "{{port}}",
+									"description": "Use the port from ../docker-compose.yml"
+								}
+							]
+						},
+						"description": "Return a category"
+					},
+					"response": [
+						{
+							"name": "Successful",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/id/:categoryId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"id",
+										":categoryId"
+									],
+									"variable": [
+										{
+											"key": "categoryId",
+											"value": "16",
+											"description": "(Required) "
+										},
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "appllication/json"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Category not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/categories/id/:categoryId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"categories",
+										"id",
+										":categoryId"
+									],
+									"variable": [
+										{
+											"key": "categoryId",
+											"value": "16",
+											"description": "(Required) "
+										},
+										{
+											"key": "host",
+											"value": "{{host}}"
+										},
+										{
+											"key": "port",
+											"value": "{{port}}",
+											"description": "Use the port from ../docker-compose.yml"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "any",
+			"description": {
+				"content": "",
+				"type": "text/plain"
+			}
+		},
+		{
+			"key": "port",
+			"value": "8001",
+			"type": "any",
+			"description": {
+				"content": "Use the port from ../docker-compose.yml",
+				"type": "text/plain"
+			}
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://{{host}}:{{port}}",
+			"type": "string"
+		}
+	]
+}
